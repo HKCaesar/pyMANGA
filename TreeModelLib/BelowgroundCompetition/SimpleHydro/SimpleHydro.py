@@ -34,7 +34,7 @@ class SimpleHydro(BelowgroundCompetition):
     # grid cells and gradient flow is regarded for.
     def transpire(self):
         ## time step length
-        tsl = (self._t_end - self._t_ini)
+        tsl = self._t_end - self._t_ini
         ## seconds per day
         s_d = 3600 * 24
         ##calculate water uptake from grid cells
@@ -43,7 +43,7 @@ class SimpleHydro(BelowgroundCompetition):
                       np.array(self._xe)[np.newaxis, np.newaxis, :])**2 +
                      (self._my_grid[1][:, :, np.newaxis] -
                       np.array(self._ye)[np.newaxis, np.newaxis, :])**2)**0.5)
-        water_loss = (distance - distance)[:, :, 0]
+        water_loss = np.zeros(np.shape(distance[:, :, 0]))
         presence = distance > 0
         maxe = np.amax(distance, axis=(0, 1))
         self._salinity = []
@@ -206,7 +206,7 @@ class SimpleHydro(BelowgroundCompetition):
                   (raw_flodur[inds_int + 1] - raw_flodur[inds_int])) / 24
         dilu_vec = (_dilution_frac_upper +
                     (-_dilution_frac_upper + _dilution_frac_lower) * flodur)
-        self.dilution_frac = (np.repeat(np.array([dilu_vec]), 3,
+        self.dilution_frac = (np.repeat(np.array([dilu_vec]), self.x_resolution,
                                         axis=0)).transpose()
 
     ## This functions prepares the tree variables for the SimpleHydro
