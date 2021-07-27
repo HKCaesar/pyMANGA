@@ -4,8 +4,8 @@
 import getopt
 import sys
 from os import path
-from ProjectLib import XMLtoProject
-from TimeLoopLib import TreeDynamicTimeStepping
+from pyMANGA.ProjectLib.XMLtoProject import XMLtoProject
+from pyMANGA.TimeLoopLib.TreeDynamicTimeStepping import TreeDynamicTimeStepping
 
 
 class Model():

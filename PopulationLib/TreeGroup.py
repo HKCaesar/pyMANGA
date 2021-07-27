@@ -4,7 +4,7 @@
 @date: 2018-Today
 @author: jasper.bathmann@ufz.de
 """
-import PopulationLib as PLib
+import pyMANGA.PopulationLib as PLib
 
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path

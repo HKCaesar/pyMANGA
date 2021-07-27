@@ -5,8 +5,8 @@
 @author: jasper.bathmann@ufz.de
 """
 
-import PopulationLib as PLib
-from PopulationLib import TreeGroup
+import pyMANGA.PopulationLib as PLib
+from pyMANGA.PopulationLib.TreeGroup import TreeGroup
 
 
 class Population(TreeGroup):
